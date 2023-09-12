@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-
+import servicio1 from '../services/servicio1';
 
 
 const SimplePage = () => {
-  const [formData, setFormData] = useState({
-    nombre: '',
-    email: ''
-  });
+  const [formData, setFormData] = useState();
 
   // Función para manejar cambios en los campos del formulario
   const handleInputChange = (e) => {
@@ -18,10 +15,13 @@ const SimplePage = () => {
   };
 
   // Función para manejar el envío del formulario
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+  
     e.preventDefault();
+    const rta = await servicio1.crear(formData)
+    alert(rta)
     // Aquí puedes hacer lo que quieras con los datos del formulario
-    console.log('Datos del formulario:', formData);
+   
   };
   return (
    <>
@@ -30,7 +30,7 @@ const SimplePage = () => {
         <label>Nombre:</label>
         <input
           type="text"
-          name="pregunta"
+          name='"question"'
          
           onChange={handleInputChange}
         />

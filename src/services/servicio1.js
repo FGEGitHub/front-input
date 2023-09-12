@@ -1,22 +1,20 @@
 import axios from "axios"
 
-const  baseUrl ='http://localhost:4000/'
+const  baseUrl ='https://fastapiyape.azurewebsites.net/api/query'
 
-let config =  {
-    headers:{
-        Authorization:`Bearer ${userContext.token}`
-    }
-}
+
 
 
 const crear= async  (datos) => {
     console.log(datos)
-     const {data } = await axios.post(baseUrl+'crear',config,datos)
-     if(data=== 'error login'){
-       
-      window.localStorage.removeItem('loggedNoteAppUser')
-      window.location.reload();
-    }  
+    let post =  {
+        headers:{
+            'Content-Type':'application/json'
+        },body:datos
+    }
+     const {data } = await axios.post('https://fastapiyape.azurewebsites.net/api/query',datos)
+     console.log(data)
+  return data
  }  
 
 
