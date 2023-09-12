@@ -10,9 +10,9 @@ const crear= async  (datos) => {
     let post =  {
         headers:{
             'Content-Type':'application/json'
-        },body:datos
+        },body:{"question":"que es yape"}
     }
-     const {data } = await axios.post('https://fastapiyape.azurewebsites.net/api/query',datos)
+     const {data } = await axios.post(baseUrl,{"question":"que es yape"})
      console.log(data)
   return data
  }  

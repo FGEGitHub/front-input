@@ -12,6 +12,7 @@ const SimplePage = () => {
       ...formData,
       [name]: value
     });
+    console.log(formData)
   };
 
   // Función para manejar el envío del formulario
