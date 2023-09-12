@@ -3,108 +3,41 @@ import React, { useState } from 'react';
 
 
 const SimplePage = () => {
-  const [form, setForm] = useState({edicion:"junio"});
-  const [resultados, setResultados] = useState('');
+  const [formData, setFormData] = useState({
+    nombre: '',
+    email: ''
+  });
 
-  const handleChange = (e) =>
-  setForm({ ...form, [e.target.name]: e.target.value });
-
-
-function fecha(dataIndex, rowIndex, data, onClick) {
-    return (
-        <>
-            {resultados[dataIndex].fecha != null ? <>{resultados[dataIndex].fecha}</>:<>11/09/2023</>} 
-
-
-        </>
-
-    );
-}
-
-
-
-
-
-function fiscalizofuncion(dataIndex, rowIndex, data, onClick) {
-    return (
-        <>
-            {resultados[dataIndex].nombreesc  !=null ?  <>{resultados[dataIndex].nombreesc} </>: <>No</> }
-
-
-        </>
-
-    );
-}
-
-
-
-function mesafuncion(dataIndex, rowIndex, data, onClick) {
-    return (
-        <>
-            {resultados[dataIndex].numero !=null ?  <>{resultados[dataIndex].numero}</>: <>Sin definir</> }
-
-
-        </>
-
-    );
-}
-
-
-
-
-function inscriptonombre(dataIndex, rowIndex, data, onClick) {
-  return (
-      <>
-         <>{resultados[dataIndex].nombre} {resultados[dataIndex].apellido}</>
-
-
-      </>
-
-  );
-}
-
-function inscripto(dataIndex, rowIndex, data, onClick) {
-  return (
-      <>
-          <>Si</>
-
-
-      </>
-
-  );
-}
-  const handleDeterminarpordni = async (event) => {
-    event.preventDefault();
-    try {
-
-    
-     
-     } catch (error) {
-       console.error(error);
-       console.log('Error algo sucedio')
-   
-     
-     }
-
+  // Función para manejar cambios en los campos del formulario
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
   };
-  
-  const handleDeterminarpornombre = async (event) => {
-    event.preventDefault();
-    try {
 
-     
-     } catch (error) {
-       console.error(error);
-       console.log('Error algo sucedio')
-   
-     
-     }
-
+  // Función para manejar el envío del formulario
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Aquí puedes hacer lo que quieras con los datos del formulario
+    console.log('Datos del formulario:', formData);
   };
-  
   return (
    <>
-   <p>HOLA </p>
+      <form onSubmit={handleSubmit}>
+      <div>
+        <label>Nombre:</label>
+        <input
+          type="text"
+          name="pregunta"
+         
+          onChange={handleInputChange}
+        />
+      </div>
+             
+      <button type="submit">Enviar</button>
+    </form>
    </>
   );
 };

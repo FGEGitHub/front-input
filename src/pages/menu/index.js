@@ -19,8 +19,7 @@ export default function Paginas() {
                 
                 </div>
               
-        <br/>
-                <Formulario/>
+     
                 
           
                 </>
